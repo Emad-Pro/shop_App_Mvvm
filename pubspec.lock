@@ -315,14 +315,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.2.0"
-  flutter_styled_toast:
-    dependency: "direct main"
-    description:
-      name: flutter_styled_toast
-      sha256: e667f13a665820eb0fa8506547e47eacbcddf1948d6d3036cfd3b089bd4b0516
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.1"
   flutter_switch:
     dependency: "direct main"
     description:
@@ -520,22 +512,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  loading_animation_widget:
-    dependency: "direct main"
-    description:
-      name: loading_animation_widget
-      sha256: "1901682600273a966c34cf44a85fc5355da92a8d08a8a43c11adc4e471993e3a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.0+4"
-  loading_indicator:
-    dependency: "direct main"
-    description:
-      name: loading_indicator
-      sha256: a101ffb2aa3e646137d7810bfa90b50525dd3f72c01235b6df7491cf6af6f284
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.1"
   material_color_utilities:
     dependency: transitive
     description:
@@ -696,14 +672,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.27.7"
-  selectable_list:
-    dependency: "direct main"
-    description:
-      name: selectable_list
-      sha256: "102c345d6dfccda9744d65c1fd73c806bfa8561d7e7e57b20fa333fa7c3c9db6"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.1"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -773,14 +741,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  solid_bottom_sheet:
-    dependency: "direct main"
-    description:
-      name: solid_bottom_sheet
-      sha256: "7a18ee17da1c57fdad953f785be4cbdaf5e1116650888162ceaccb80e6b6a6aa"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.10"
   source_span:
     dependency: transitive
     description:

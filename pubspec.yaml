@@ -1,0 +1,113 @@
+name: shop_app_mvvm
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+  equatable: ^2.0.5
+  dartz: ^0.10.1
+  dio: ^5.3.2
+  get_it: ^7.2.0
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  shared_preferences: ^2.2.1
+  selectable_list: ^0.1.1
+  geolocator: ^10.1.0
+  geocoding: ^2.0.5
+  flutter_animated_dialog: ^2.0.1
+  flutter_styled_toast: ^2.1.3
+  shimmer: ^3.0.0
+  cached_network_image: ^3.2.3
+  carousel_slider: ^4.2.1
+  animate_do: ^3.0.2
+  cart_stepper: ^4.1.1
+  number_selection: ^1.0.0
+  solid_bottom_sheet: ^0.1.10
+  cupertino_stepper: ^0.2.1
+  dotted_line: ^3.2.2
+  intl: ^0.18.0
+  jiffy: ^6.2.1
+  webview_flutter: ^4.2.4
+  paymob_payment: ^0.0.1+1
+  flutter_switch: ^0.3.2
+  loading_indicator: ^3.1.1
+  loading_animation_widget: ^1.2.0+4
+  flutter_easyloading: ^3.0.5
+  widget_circular_animator: ^1.0.0
+  card_loading: ^0.3.0
+  icon_broken: ^1.1.0
+  flutter_onboard: ^2.0.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.3
+  
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+
+flutter_native_splash:
+  color: "#F9EADE"
+  image: assets/3868275.png
+  android_12:
+    color: "#F9EADE"
+    image: assets/3868275.png
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/shop.png"
+ 
+  web:
+    generate: true
+    image_path: "assets/shop.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/shop.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/shop.png"
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/login/image/login.png
+    - assets/favorites/image/1.png
+    - assets/payment_Image/4676728.png
+    - assets/payment_Image/5615659.png
+    - assets/erorrImage/3814247.png
+    - assets/onBoarding/imges/Untitled-1.png
+    - assets/onBoarding/imges/Untitled-2.png
+    - assets/onBoarding/imges/Untitled-3.png
+    - assets/lang/ar.json
+    - assets/lang/en.json
+
+  fonts:
+    - family: rubik-Regular
+      fonts:
+        - asset: assets/font/rubik/static/Rubik-Regular.ttf
+    - family: rubik-Light
+      fonts:
+        - asset: assets/font/rubik/static/Rubik-Light.ttf
+    - family: rubik-Medium
+      fonts:
+        - asset: assets/font/rubik/static/Rubik-Medium.ttf
+    - family: rubik-Black
+      fonts:
+        - asset: assets/font/rubik/static/Rubik-Black.ttf
+

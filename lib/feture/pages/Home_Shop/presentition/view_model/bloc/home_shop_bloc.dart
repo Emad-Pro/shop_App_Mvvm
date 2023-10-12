@@ -48,8 +48,10 @@ class HomeShopBloc extends Bloc<HomeShopEvent, HomeShopState> {
 
   FutureOr<void> _getHomeProductDataOffline(
       GetHomeProductDataEventOffline event, Emitter<HomeShopState> emit) async {
-    homeRepository
-        .fetchHomeDataOffline()
-        .then((value) => {emit(state.copyWith(homeProductModel: value))});
+    if (CacheHelper.sharedPreferences!.getString("homeModelData") != null) {
+      homeRepository
+          .fetchHomeDataOffline()
+          .then((value) => {emit(state.copyWith(homeProductModel: value))});
+    }
   }
 }

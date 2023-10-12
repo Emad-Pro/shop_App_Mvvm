@@ -33,9 +33,7 @@ class CacheHelper {
   }
 
   static Future read(String key) async {
-    if (sharedPreferences!.getString(key) != null) {
-      return await json.decode(sharedPreferences!.getString(key)!);
-    }
+    return await json.decode(sharedPreferences!.getString(key)!);
   }
 
   static Future save(String key, value) async {

@@ -26,7 +26,7 @@ class OnBoarding extends StatelessWidget {
           appBar: AppBar(
             title: Center(child: Text("مرحباً بك".tr(context))),
           ),
-          drawer: BuildDrawerWidget(),
+          drawer: const BuildDrawerWidget(),
           body: OnBoard(
             pageController: pageController,
             onSkip: () {},
@@ -42,7 +42,7 @@ class OnBoarding extends StatelessWidget {
               fontSize: 16,
               color: Colors.brown.shade300,
             ),
-            imageWidth: MediaQuery.of(context).size.width / 1.2,
+            imageWidth: MediaQuery.of(context).size.width / 1.5,
             pageIndicatorStyle: const PageIndicatorStyle(
               width: 100,
               inactiveColor: Colors.deepOrangeAccent,

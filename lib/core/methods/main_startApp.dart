@@ -11,10 +11,11 @@ import 'package:shop_app_mvvm/core/user_data/uId.dart';
 Future<void> mainStartApp() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
-  await SettingApp.settingDarkModeInit();
   await CacheHelper.init();
+
   await UserData.init();
   await DioHelper.init();
+  await SettingApp.settingDarkModeInit();
   await PayMob.init();
   ServiceLocator().init();
 

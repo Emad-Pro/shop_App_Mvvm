@@ -7,21 +7,18 @@ import '../../../../../core/erorr/server_faliure.dart';
 import '../model/login_model.dart';
 
 abstract class LoginRepository {
-  Future<Either<ServerFaliure, LoginModel>> fetchLoginApp(
-      {required DataLogin dataLogin});
+  Future<Either<ServerFaliure, LoginModel>> fetchLoginApp({required DataLogin dataLogin});
 }
 
 class LoginRepositoryImplemention extends LoginRepository {
   @override
-  Future<Either<ServerFaliure, LoginModel>> fetchLoginApp(
-      {required DataLogin dataLogin}) async {
+  Future<Either<ServerFaliure, LoginModel>> fetchLoginApp({required DataLogin dataLogin}) async {
     try {
-      final result =
-          await DioHelper.postData(url: "login", data: dataLogin.toJson());
+      final result = await DioHelper.postData(url: "login", data: dataLogin.toJson());
 
       return Right(LoginModel.fromJson(result.data));
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFaliure.fromDioErorr(e));
       } else {
         return Left(ServerFaliure(e.toString()));

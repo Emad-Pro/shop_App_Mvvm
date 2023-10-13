@@ -11,8 +11,7 @@ import '../model/update_profile_model/update_profile_model.dart';
 
 abstract class ProfileRepsitory {
   Future<Either<Faliure, ProfileModel>> fetchUserProfile();
-  Future<Either<Faliure, ProfileModel>> fetchUpdateUserProfile(
-      {required UpdateProfileModel data});
+  Future<Either<Faliure, ProfileModel>> fetchUpdateUserProfile({required UpdateProfileModel data});
   Future<Either<Faliure, ChangePasswordModel>> fetchChanePasswordUserProfile(
       {required SendChangePasswordModel data});
 }
@@ -21,12 +20,11 @@ class ProfileRepsitoryImplemention extends ProfileRepsitory {
   @override
   Future<Either<Faliure, ProfileModel>> fetchUserProfile() async {
     try {
-      final response =
-          await DioHelper.getData(url: 'profile', token: UserData.uId);
+      final response = await DioHelper.getData(url: 'profile', token: UserData.uId);
 
       return Right(ProfileModel.fromJson(response!.data));
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFaliure.fromDioErorr(e));
       } else {
         return Left(ServerFaliure(e.toString()));
@@ -37,14 +35,13 @@ class ProfileRepsitoryImplemention extends ProfileRepsitory {
   @override
   Future<Either<Faliure, ProfileModel>> fetchUpdateUserProfile(
       {required UpdateProfileModel data}) async {
-    print(data.toJson());
     try {
-      final response = await DioHelper.putData(
-          url: 'update-profile', token: UserData.uId, data: data.toJson());
+      final response =
+          await DioHelper.putData(url: 'update-profile', token: UserData.uId, data: data.toJson());
 
       return Right(ProfileModel.fromJson(response.data));
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFaliure.fromDioErorr(e));
       } else {
         return Left(ServerFaliure(e.toString()));
@@ -56,12 +53,12 @@ class ProfileRepsitoryImplemention extends ProfileRepsitory {
   Future<Either<Faliure, ChangePasswordModel>> fetchChanePasswordUserProfile(
       {required SendChangePasswordModel data}) async {
     try {
-      final response = await DioHelper.putData(
-          url: 'change-password', token: UserData.uId, data: data.toJson());
+      final response =
+          await DioHelper.putData(url: 'change-password', token: UserData.uId, data: data.toJson());
 
       return Right(ChangePasswordModel.fromJson(response.data));
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFaliure.fromDioErorr(e));
       } else {
         return Left(ServerFaliure(e.toString()));

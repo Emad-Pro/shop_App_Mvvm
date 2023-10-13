@@ -43,11 +43,11 @@ class PaymentCubit extends Cubit<PaymentState> {
   void changeCurrentStep(String op) {
     if (op == '+') {
       currentStep += 1;
-      print(currentStep);
+
       emit(PaymentChangeCurrentStepPlusState());
     } else {
       currentStep -= 1;
-      print(currentStep);
+
       emit(PaymentChangeCurrentStepMinusState());
     }
   }

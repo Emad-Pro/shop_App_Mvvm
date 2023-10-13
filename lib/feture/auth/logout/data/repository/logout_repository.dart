@@ -14,12 +14,11 @@ class LogoutRepositoryImplemetition extends LogoutRepository {
   @override
   Future<Either<Faliure, LogoutModel>> fetchLogiOutUser() async {
     try {
-      final result =
-          await DioHelper.postData(url: "logout", token: UserData.uId!);
-      print(result.data);
+      final result = await DioHelper.postData(url: "logout", token: UserData.uId!);
+
       return Right(LogoutModel.fromJson(result.data));
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFaliure.fromDioErorr(e));
       } else {
         return Left(ServerFaliure(e.toString()));

@@ -9,20 +9,17 @@ import '../model/categories_product/categories_product.dart';
 
 abstract class CategoriesRepository {
   Future<Either<Faliure, CategoriesProductModel>> fetchCategoriesProduct();
-  Future<Either<Faliure, List<Product>>> fetchCategoriesProductDetails(
-      {required int id});
+  Future<Either<Faliure, List<Product>>> fetchCategoriesProductDetails({required int id});
 }
 
 class CategoriesRepositoryImplementation extends CategoriesRepository {
   @override
-  Future<Either<Faliure, CategoriesProductModel>>
-      fetchCategoriesProduct() async {
+  Future<Either<Faliure, CategoriesProductModel>> fetchCategoriesProduct() async {
     try {
-      final response =
-          await DioHelper.getData(url: 'categories', token: UserData.uId);
+      final response = await DioHelper.getData(url: 'categories', token: UserData.uId);
       return Right(CategoriesProductModel.fromJson(response!.data!));
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFaliure.fromDioErorr(e));
       } else {
         return Left(ServerFaliure(e.toString()));
@@ -31,11 +28,9 @@ class CategoriesRepositoryImplementation extends CategoriesRepository {
   }
 
   @override
-  Future<Either<Faliure, List<Product>>> fetchCategoriesProductDetails(
-      {required int id}) async {
+  Future<Either<Faliure, List<Product>>> fetchCategoriesProductDetails({required int id}) async {
     try {
-      final response =
-          await DioHelper.getData(url: 'categories/$id', token: UserData.uId);
+      final response = await DioHelper.getData(url: 'categories/$id', token: UserData.uId);
 
       return Right(List<Product>.from(
         (response!.data['data']['data'] as List).map(
@@ -43,7 +38,7 @@ class CategoriesRepositoryImplementation extends CategoriesRepository {
         ),
       ));
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFaliure.fromDioErorr(e));
       } else {
         return Left(ServerFaliure(e.toString()));

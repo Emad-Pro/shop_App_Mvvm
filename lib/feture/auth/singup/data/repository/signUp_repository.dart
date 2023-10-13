@@ -15,7 +15,6 @@ class SignUpRepositoryImplemention extends SignUpRepository {
   Future<Either<ServerFaliure, SignUpModel>> fetchSignUpApp(
       {required DataSignUp dataSignUp}) async {
     try {
-      print(dataSignUp.toJson());
       final result = await DioHelper.postData(url: "register", data: dataSignUp.toJson());
       return Right(SignUpModel.fromJson(result.data));
     } on Exception catch (e) {

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:icon_broken/icon_broken.dart';
+
 import 'package:shimmer/shimmer.dart';
 import 'package:shop_app_mvvm/core/AppLocalizations/app_localizations.dart';
 

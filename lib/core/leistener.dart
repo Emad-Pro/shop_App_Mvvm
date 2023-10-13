@@ -13,7 +13,6 @@ BlocListener<FavoritesBloc, FavoritesState> listenerFavoritesMethod() {
   return BlocListener<FavoritesBloc, FavoritesState>(
     listener: (context, state) {
       if (state.favoritesModifiyProductState == RequestStateCart.loadedState) {
-        print(state.favoritesModifiyProductModel!.message!);
         snackBarCustomMethod(
             context: context,
             textMessage:

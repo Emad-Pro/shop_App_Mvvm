@@ -24,7 +24,7 @@ class OrderRepositoryImp extends OrderRepository {
       final response = await DioHelper.getData(url: 'orders', token: UserData.uId);
       return Right(OrderModel.fromJson(response!.data));
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFaliure.fromDioErorr(e));
       } else {
         return Left(ServerFaliure(e.toString()));
@@ -38,7 +38,7 @@ class OrderRepositoryImp extends OrderRepository {
       final response = await DioHelper.getData(url: 'orders/$orderId', token: UserData.uId);
       return Right(OrderDetailsModel.fromJson(response!.data));
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFaliure.fromDioErorr(e));
       } else {
         return Left(ServerFaliure(e.toString()));

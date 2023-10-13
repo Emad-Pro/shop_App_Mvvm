@@ -19,11 +19,10 @@ class CartsRepositoryImplementation extends CartsRepository {
   @override
   Future<Either<Faliure, CartsModel>> fetchCartsData() async {
     try {
-      final response =
-          await DioHelper.getData(url: "carts", token: UserData.uId);
+      final response = await DioHelper.getData(url: "carts", token: UserData.uId);
       return Right(CartsModel.fromJson(response!.data!));
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFaliure.fromDioErorr(e));
       } else {
         return Left(ServerFaliure(e.toString()));
@@ -34,12 +33,12 @@ class CartsRepositoryImplementation extends CartsRepository {
   @override
   Future<Either<Faliure, CartAddModel>> fetchModifiyProduct(int id) async {
     try {
-      final response = await DioHelper.postData(
-          url: 'carts', token: UserData.uId, data: {"product_id": id});
+      final response =
+          await DioHelper.postData(url: 'carts', token: UserData.uId, data: {"product_id": id});
 
       return Right(CartAddModel.fromJson(response.data));
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFaliure.fromDioErorr(e));
       } else {
         return Left(ServerFaliure(e.toString()));
@@ -56,7 +55,7 @@ class CartsRepositoryImplementation extends CartsRepository {
 
       return Right(QuantityProductModel.fromJson(response.data));
     } on Exception catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return Left(ServerFaliure.fromDioErorr(e));
       } else {
         return Left(ServerFaliure(e.toString()));

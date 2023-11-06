@@ -77,7 +77,11 @@ class PaymentCubit extends Cubit<PaymentState> {
       },
     )
         .then((value) {
-      emit(PaymentPaymobErorr(erorrMessage: "The payment process has been closed, try again"));
+      if (value!.success == false) {
+        emit(PaymentPaymobCanceled(erorrMessage: "The payment process has been closed, try again"));
+      }
+    }).catchError((onError) {
+      emit(PaymentPaymobCanceled(erorrMessage: "Some Erorr"));
     });
   }
 }

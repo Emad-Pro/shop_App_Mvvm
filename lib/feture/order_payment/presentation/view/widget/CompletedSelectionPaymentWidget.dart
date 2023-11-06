@@ -107,7 +107,7 @@ class PayMentPaymobWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<PaymentCubit, PaymentState>(
       listener: (context, state) {
-        if (state is PaymentPaymobErorr) {
+        if (state is PaymentPaymobCanceled) {
           snackBarCustomMethod(
               context: context,
               textMessage: state.erorrMessage.tr(context),
@@ -120,13 +120,16 @@ class PayMentPaymobWidget extends StatelessWidget {
               "payment_method": 2,
               'use_points': false
             }));
+            snackBarCustomMethod(
+                context: context, textMessage: "thePaymentWasCompletedSuccessfully".tr(context));
+            Future.delayed(const Duration(seconds: 1), () {
+              Navigator.pushAndRemoveUntil(
+                  context, MaterialPageRoute(builder: (context) => const Home()), (route) => false);
+            });
+          } else {
+            snackBarCustomMethod(
+                context: context, textMessage: "thePaymentWasCompletedSuccessfully".tr(context));
           }
-          snackBarCustomMethod(
-              context: context, textMessage: "thePaymentWasCompletedSuccessfully".tr(context));
-          Future.delayed(const Duration(seconds: 1), () {
-            Navigator.pushAndRemoveUntil(
-                context, MaterialPageRoute(builder: (context) => const Home()), (route) => false);
-          });
         }
       },
       builder: (context, state) {

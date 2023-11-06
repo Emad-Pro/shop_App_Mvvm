@@ -19,8 +19,8 @@ class PaymentPaymob extends PaymentState {
   PaymentPaymob({required this.response});
 }
 
-class PaymentPaymobErorr extends PaymentState {
+class PaymentPaymobCanceled extends PaymentState {
   final String erorrMessage;
 
-  PaymentPaymobErorr({required this.erorrMessage});
+  PaymentPaymobCanceled({required this.erorrMessage});
 }
